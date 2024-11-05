@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.firebase.firestore)
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.okhttp3.okhttp)

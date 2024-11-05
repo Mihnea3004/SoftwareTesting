@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.softwaretesting.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_statistics"
+        android:name="com.example.softwaretesting.ui.statistics.StatisticsFragment"
+        android:label="@string/statistics"
+        tools:layout="@layout/fragment_statistics" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_chatbot"
+        android:name="com.example.softwaretesting.ui.chatbot.ChatbotFragment"
+        android:label="@string/chat_bot"
+        tools:layout="@layout/fragment_chatbot" >
+
+    </fragment>
+</navigation>

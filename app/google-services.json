@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182382264782",
+    "project_id": "softwarets",
+    "storage_bucket": "softwarets.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182382264782:android:754a1ffdfd9ec2c4426b9f",
+        "android_client_info": {
+          "package_name": "com.example.softwaretesting"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnv_IuABK-dZl7jRNwo-CrdG18IS1Brxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

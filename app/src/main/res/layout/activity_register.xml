@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Register">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register_page"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:padding="16dp"
+        android:id="@+id/register_title"/>
+</LinearLayout>
+    <EditText
+        android:id="@+id/register_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:autofillHints=""
+        android:hint="@string/enter_your_username"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColorHint="#546E7A"
+        android:textSize="16sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:autofillHints=""
+        android:hint="@string/enter_your_password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textColorHint="#546E7A"
+        android:id="@+id/register_password"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:autofillHints=""
+        android:hint="@string/confirm_your_password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textColorHint="#546E7A"
+        android:id="@+id/register_password_confirmation"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/register"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:background="#000000"
+        android:id="@+id/register_button" />
+</LinearLayout>

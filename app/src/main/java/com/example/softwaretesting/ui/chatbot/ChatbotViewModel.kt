@@ -17,7 +17,7 @@ class ChatbotViewModel : ViewModel() {
     private val _chatMessages = MutableLiveData<List<Pair<String, String>>>()
     val chatMessages: LiveData<List<Pair<String, String>>> get() = _chatMessages
 
-    private val apiKey = "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"
+    private val apiKey = ""
     private val client = OkHttpClient()
 
     private var messageHistory = mutableListOf<Pair<String, String>>() // Pair<Sender, Message>

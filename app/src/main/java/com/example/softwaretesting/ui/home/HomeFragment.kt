@@ -30,13 +30,11 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // Initialize RecyclerView and Adapter
         financeAdapter = FinanceAdapter(mutableListOf(), requireContext())
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = financeAdapter
         binding.recyclerView.setHasFixedSize(true)
 
-        // Set up Firestore real-time listener for finance entries
         auth.currentUser?.uid?.let { userId ->
             listenToFinanceEntries(userId)
         }
@@ -44,7 +42,7 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    private fun listenToFinanceEntries(userId: String) {
+    fun listenToFinanceEntries(userId: String) {
         val userCollection = firestore.collection("users").document(userId).collection("financeEntries")
 
         financeEntriesListener = userCollection.addSnapshotListener { snapshot, error ->
@@ -54,14 +52,12 @@ class HomeFragment : Fragment() {
             }
 
             if (snapshot != null) {
-                // Map Firestore documents to FinanceEntry objects
                 val updatedEntries = snapshot.documents.mapNotNull { document ->
                     document.toObject(FinanceEntry::class.java)?.apply {
-                        id = document.id // Ensure the document ID is set
+                        id = document.id
                     }
                 }
 
-                // Update adapter data efficiently using DiffUtil
                 financeAdapter.updateData(updatedEntries)
             }
         }

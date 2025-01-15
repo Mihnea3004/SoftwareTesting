@@ -16,16 +16,14 @@ class StatisticsViewModel : ViewModel() {
     fun fetchDataForPeriod(period: String) {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
 
-        // Calculate the start date based on the specified period
         val startDate = when (period.lowercase()) {
-            "days" -> getStartDate(Calendar.DAY_OF_YEAR, -1)    // Last 1 day
-            "weeks" -> getStartDate(Calendar.WEEK_OF_YEAR, -1)  // Last 1 week
-            "months" -> getStartDate(Calendar.MONTH, -1)        // Last 1 month
-            "years" -> getStartDate(Calendar.YEAR, -1)          // Last 1 year
+            "days" -> getStartDate(Calendar.DAY_OF_YEAR, -1)
+            "weeks" -> getStartDate(Calendar.WEEK_OF_YEAR, -1)
+            "months" -> getStartDate(Calendar.MONTH, -1)
+            "years" -> getStartDate(Calendar.YEAR, -1)
             else -> null
         } ?: return
 
-        // Query Firestore for entries with timestamp >= startDate
         firestore.collection("users").document(userId).collection("financeEntries")
             .whereGreaterThanOrEqualTo("timestamp", startDate.time)
             .get()
@@ -35,9 +33,8 @@ class StatisticsViewModel : ViewModel() {
                     val incomeType = document.getString("incomeType")
                     val amount = document.getDouble("amount") ?: 0.0
                     val timestamp = document.getLong("timestamp") ?: 0L
-                    val date = Date(timestamp) // Use raw Date object as key
+                    val date = Date(timestamp)
 
-                    // Aggregate amounts for each date
                     val currentPair = dataMap[date] ?: Pair(0.0, 0.0)
                     val updatedPair = if (incomeType == "income") {
                         Pair(currentPair.first + amount, currentPair.second)
@@ -50,7 +47,6 @@ class StatisticsViewModel : ViewModel() {
             }
     }
 
-    // Helper function to get the start date based on the period offset
     private fun getStartDate(field: Int, amount: Int): Date {
         val calendar = Calendar.getInstance()
         calendar.add(field, amount)

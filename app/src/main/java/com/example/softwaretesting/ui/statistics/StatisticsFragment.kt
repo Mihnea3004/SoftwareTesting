@@ -19,7 +19,7 @@ class StatisticsFragment : Fragment() {
 
     private var _binding: FragmentStatisticsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var lineChart: LineChart
+    lateinit var lineChart: LineChart
     private lateinit var statisticsViewModel: StatisticsViewModel
 
     override fun onCreateView(
@@ -57,7 +57,7 @@ class StatisticsFragment : Fragment() {
         binding.btnYears.setOnClickListener { statisticsViewModel.fetchDataForPeriod("years") }
     }
 
-    private fun updateChart(dataMap: Map<Date, Pair<Double, Double>>) {
+    fun updateChart(dataMap: Map<Date, Pair<Double, Double>>) {
         val dateFormat = SimpleDateFormat("dd/MM/yy HH:mm", Locale.getDefault())
 
         val incomeEntries = dataMap.entries.mapIndexed { index, entry ->

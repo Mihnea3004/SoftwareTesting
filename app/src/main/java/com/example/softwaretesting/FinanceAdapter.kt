@@ -62,7 +62,7 @@ class FinanceAdapter(
                     true
                 }
                 R.id.remove -> {
-                    removeEntry(financeEntry) // Only remove from Firestore, let the listener update the UI
+                    removeEntry(financeEntry)
                     true
                 }
                 else -> false
@@ -133,7 +133,6 @@ class FinanceAdapter(
         }
     }
 
-    // Use DiffUtil for efficient list updates
     fun updateData(newList: List<FinanceEntry>) {
         val diffCallback = FinanceDiffCallback(financeList, newList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
@@ -143,7 +142,6 @@ class FinanceAdapter(
         diffResult.dispatchUpdatesTo(this)
     }
 
-    // DiffUtil Callback for efficient list updates
     class FinanceDiffCallback(
         private val oldList: List<FinanceEntry>,
         private val newList: List<FinanceEntry>
